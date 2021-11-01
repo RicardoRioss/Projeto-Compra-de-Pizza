@@ -74,11 +74,8 @@ function closeModal() {
       });
       c('.pizzaInfo--addButton').addEventListener('click', ()=>{
         let size =  parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));
-
         let identifier = pizzaJson[modalKey].id+'@'+size;
-
         let key = cart.findIndex((item)=> item.identifier == identifier);
-
         if( key > -1) {
             cart[key].qt += modalQt;
         } else {
@@ -90,7 +87,22 @@ function closeModal() {
             qt:modalQt
         });
     }
-
+        updateCart();
         closeModal();
       });
+
+      function updateCart() {
+        if ( cart.length > 0) {
+            c('aside').classList.add('show');
+            for(let i in cart){
+
+
+                
+            }
+
+        }else {
+            c('aside').classList.remove('show');
+        }
+            
+      }
     
